@@ -1,15 +1,12 @@
 from django.http import HttpResponse
-from django.template import RequestContext, loader
+from django.shortcuts import render
 
 from thermostats.models import Thermostat
 
 def index(request):
 	thermostat_list = Thermostat.objects.order_by('name')[:5]
-	template = loader.get_template('thermostats/index.html')
-	context = RequestContext(request, {
-		'thermostat_list': thermostat_list,
-	})
-	return HttpResponse(template.render(context))
+	context = {'thermostat_list': thermostat_list}
+	return render(request, 'thermostats/index.hmlt', context)
 
 def detail(request, thermostat_id):
     return HttpResponse("You're looking at thermostat %s." % thermostat_id)
