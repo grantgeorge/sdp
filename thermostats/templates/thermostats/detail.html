@@ -1,3 +1,7 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'thermostats/bootstrap/css/bootstrap.css' %}"/> 
+
 <h1>Name: {{ thermostat.name }}</h1>
 <h2>Base Control: {{ thermostat.base_control }}</h2>
 <h2>Account ID: {{ thermostat.account_id }}</h2>
