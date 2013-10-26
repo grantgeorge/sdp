@@ -7,6 +7,7 @@ class BaseControlAdmin(admin.ModelAdmin):
 		('Temperature Information', {'fields':['current_temperature', 'setpoint_temperature', 'setback_temperature', 'status']}),
 	]
 	list_display = ('name', 'account_id', 'basecontrol_id')
+	search_fields = ['name']
 
 class ThermostatAdmin(admin.ModelAdmin):
 	fields = ['base_control', 'account_id', 'thermostat_id', 'name', 'current_temperature', 'setpoint_temperature', 'setback_temperature', 'status']
