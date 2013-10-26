@@ -1,0 +1,9 @@
+{% if thermostat_list %}
+    <ul>
+    {% for thermostat in thermostat_list %}
+        <li><a href="/thermostats/{{ thermostat.id }}/">{{ thermostat.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No thermostats are available.</p>
+{% endif %}
