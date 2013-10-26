@@ -1,6 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 
 from thermostats.models import Thermostat
 
@@ -10,10 +9,7 @@ def index(request):
 	return render(request, 'thermostats/index.html', context)
 
 def detail(request, thermostat_id):
-	try:
-		thermostat = Thermostat.objects.get(pk=thermostat_id)
-	except Thermostat.DoesNotExist:
-		raise Http404
+	thermostat = get_object_or_404(Thermostat, pk=thermostat_id)
 	return render(request, 'thermostats/detail.html', {'thermostat': thermostat})
 
 def settings(request, thermostat_id):
