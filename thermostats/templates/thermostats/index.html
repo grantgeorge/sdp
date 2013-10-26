@@ -1,3 +1,7 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'thermostats/style.css' %}"/> 
+
 {% if thermostat_list %}
     <ul>
     {% for thermostat in thermostat_list %}
