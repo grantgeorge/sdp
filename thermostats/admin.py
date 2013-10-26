@@ -14,7 +14,7 @@ class ThermostatAdmin(admin.ModelAdmin):
 		('Settings', {'fields': ['base_control','account_id', 'thermostat_id', 'name']}),
 		('Temperature Control', {'fields':['current_temperature', 'setpoint_temperature', 'setback_temperature', 'status']}),
 	]
-	list_display = ('base_control', 'name', 'account_id', 'thermostat_id')
+	list_display = ('name', 'base_control', 'account_id', 'thermostat_id')
 	search_fields = ['name']
 
 admin.site.register(BaseControl, BaseControlAdmin)
