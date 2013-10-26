@@ -1,5 +1,8 @@
 from django.http import HttpResponse
 
+def index(request):
+    return HttpResponse("Hello, world. You're at the thermostat index.")
+
 def detail(request, thermostat_id):
     return HttpResponse("You're looking at thermostats %s." % thermostat_id)
 
