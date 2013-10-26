@@ -1,15 +1,20 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.http import Http404
 
 from thermostats.models import Thermostat
 
 def index(request):
 	thermostat_list = Thermostat.objects.order_by('name')[:5]
 	context = {'thermostat_list': thermostat_list}
-	return render(request, 'thermostats/index.hmlt', context)
+	return render(request, 'thermostats/index.html', context)
 
 def detail(request, thermostat_id):
-    return HttpResponse("You're looking at thermostat %s." % thermostat_id)
+	try:
+		thermostat = Thermostat.objects.get(pk=thermostat_id)
+	except Thermostat.DoesNotExist:
+		raise Http404
+	return render(request, 'thermostats/details.html', {'thermostat': thermostat})
 
 def settings(request, thermostat_id):
     return HttpResponse("You're looking at the settings of thermostat %s." % thermostat_id)
