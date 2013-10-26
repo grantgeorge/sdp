@@ -37,12 +37,16 @@
       </div>
     </div>
   	<div class="container">
+  		<h1>Thermostats</h1>
 	    {% if thermostat_list %}
-		    <ul>
+		    <table>
 		    {% for thermostat in thermostat_list %}
-		        <li><a href="{% url 'thermostats:detail' thermostat.id %}">{{ thermostat.name }}</a></li>
+		        <tr>
+		        	<td><a href="{% url 'thermostats:detail' thermostat.id %}">{{ thermostat.name }}</a></td>
+		        	<td>{{ thermostat.name }}</td>
+		        </tr>
 		    {% endfor %}
-		    </ul>
+		    </table>
 		{% else %}
 		    <p>No thermostats are available.</p>
 		{% endif %}
