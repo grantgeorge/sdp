@@ -40,10 +40,11 @@
   		<h1>Thermostats</h1>
 	    {% if thermostat_list %}
 		    <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Current Temperature</th>
+          </tr>
 		    {% for thermostat in thermostat_list %}
-		    	<tr>
-		    		<th>Name</th>
-		    		<th>Current Temperature</th>
 		        <tr>
 		        	<td>
 		        		<a href="{% url 'thermostats:detail' thermostat.id %}">{{ thermostat.name }}</a>
