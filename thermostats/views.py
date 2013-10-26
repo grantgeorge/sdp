@@ -14,7 +14,7 @@ def detail(request, thermostat_id):
 		thermostat = Thermostat.objects.get(pk=thermostat_id)
 	except Thermostat.DoesNotExist:
 		raise Http404
-	return render(request, 'thermostats/details.html', {'thermostat': thermostat})
+	return render(request, 'thermostats/detail.html', {'thermostat': thermostat})
 
 def settings(request, thermostat_id):
     return HttpResponse("You're looking at the settings of thermostat %s." % thermostat_id)
