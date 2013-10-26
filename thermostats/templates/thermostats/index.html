@@ -41,9 +41,16 @@
 	    {% if thermostat_list %}
 		    <table>
 		    {% for thermostat in thermostat_list %}
+		    	<tr>
+		    		<th>Name</th>
+		    		<th>Current Temperature</th>
 		        <tr>
-		        	<td><a href="{% url 'thermostats:detail' thermostat.id %}">{{ thermostat.name }}</a></td>
-		        	<td>{{ thermostat.name }}</td>
+		        	<td>
+		        		<a href="{% url 'thermostats:detail' thermostat.id %}">{{ thermostat.name }}</a>
+		        	</td>
+		        	<td>
+		        		{{ thermostat.current_temperature }}
+		        	</td>
 		        </tr>
 		    {% endfor %}
 		    </table>
