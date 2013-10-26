@@ -8,6 +8,10 @@ class BaseControl(models.Model):
 	setpoint_temperature = models.IntegerField(default=0)
 	setback_temperature = models.IntegerField(default=0)
 	status = models.BooleanField()
+	def __unicode__(self):
+		return self.name
+	def get_current_temperature(self):
+		return self.current_temperature
 
 class Thermostat(models.Model):
 	base_control = models.ForeignKey(BaseControl)
@@ -18,3 +22,7 @@ class Thermostat(models.Model):
 	setpoint_temperature = models.IntegerField(default=0)
 	setback_temperature = models.IntegerField(default=0)
 	status = models.BooleanField()
+	def __unicode__(self):
+		return self.name
+	def get_current_temperature(self):
+		return self.current_temperature
