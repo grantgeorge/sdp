@@ -1,13 +1,23 @@
-{% load staticfiles %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'thermostats/bootstrap/css/bootstrap.css' %}"/> 
-
-{% if thermostat_list %}
-    <ul>
-    {% for thermostat in thermostat_list %}
-        <li><a href="{% url 'thermostats:detail' thermostat.id %}">{{ thermostat.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No thermostats are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cloudstat - SDP5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'thermostats/bootstrap/css/bootstrap.css' %}"/> 
+  </head>
+  <body>
+    {% if thermostat_list %}
+	    <ul>
+	    {% for thermostat in thermostat_list %}
+	        <li><a href="{% url 'thermostats:detail' thermostat.id %}">{{ thermostat.name }}</a></li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No thermostats are available.</p>
+	{% endif %}
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
