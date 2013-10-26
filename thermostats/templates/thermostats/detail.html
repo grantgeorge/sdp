@@ -37,15 +37,16 @@
       </div>
     </div>
   	<div class="container">
-  		<h1>Name: {{ thermostat.name }}</h1>
-		<h2>Base Control: {{ thermostat.base_control }}</h2>
-		<h2>Account ID: {{ thermostat.account_id }}</h2>
-		<h2>Thermostat ID: {{ thermostat.thermostat_id }}</h2>
-		<h2>Current Temperature: {{ thermostat.current_temperature }}</h2>
-		<h2>Setpoint Temperature: {{ thermostat.setpoint_temperature }}</h2>
-		<h2>Setback Temperature: {{ thermostat.setback_temperature }}</h2>
-		<h2>Status: {{ thermostat.status }}</h2>
-		<h2>ID: {{ thermostat.id }}</h2>
+  		<h1>Thermostat Settings</h1>
+  		<p>Name: {{ thermostat.name }}</p>
+		<p>Base Control: {{ thermostat.base_control }}</p>
+		<p>Account ID: {{ thermostat.account_id }}</p>
+		<p>Thermostat ID: {{ thermostat.thermostat_id }}</p>
+		<p>Current Temperature: {{ thermostat.current_temperature }}</p>
+		<p>Setpoint Temperature: {{ thermostat.setpoint_temperature }}</p>
+		<p>Setback Temperature: {{ thermostat.setback_temperature }}</p>
+		<p>Status: {{ thermostat.status }}</p>
+		<p>ID: {{ thermostat.id }}</p>
 	</div>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="{% static 'thermostats/bootstrap/js/bootstrap.min.js' %}"></script>
