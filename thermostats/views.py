@@ -8,8 +8,8 @@ def index(request):
 	context = {'thermostat_list': thermostat_list}
 	return render(request, 'thermostats/index.html', context)
 
-def detail(request, thermostat_id):
-	thermostat = get_object_or_404(Thermostat, pk=thermostat_id)
+def detail(request, in_id):
+	thermostat = get_object_or_404(Thermostat, pk=in_id)
 	return render(request, 'thermostats/detail.html', {'thermostat': thermostat})
 
 def settings(request, thermostat_id):
