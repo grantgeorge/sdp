@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from thermostats.models import Thermostat
 
 def index(request):
-	thermostat_list = Thermostats.objects.order_by('name')[:5]
+	thermostat_list = Thermostat.objects.order_by('name')[:5]
 	output = ', '.join([t.name for t in thermostat_list])
 	return HttpResponse(output)
 
