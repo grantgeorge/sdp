@@ -24,7 +24,7 @@ class ThermostatsViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
-router.register(r'thermostatsInfo', ThermostatsViewSet)
+router.register(r'thermostatcall', ThermostatsViewSet)
 
 urlpatterns = patterns('',
 	# REST
