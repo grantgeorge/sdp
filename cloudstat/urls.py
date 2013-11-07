@@ -36,9 +36,10 @@ urlpatterns = patterns('',
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
     # Uncomment the next line to enable the admin:
+    url(r'^admin/', include(admin.site.urls)),
+
     # url(r'^$', 'cloudstat.views.home', name='home'),
     url(r'^thermostats/', include('thermostats.urls', namespace="thermostats")),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('snippets.urls')), 
 )
