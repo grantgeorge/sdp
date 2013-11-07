@@ -6,6 +6,9 @@ from rest_framework import viewsets, routers
 from django.contrib import admin
 admin.autodiscover()
 
+# Import thermostat model
+from thermostats.models import Thermostat, BaseControl
+
 # ViewSets define the view behavior.
 class UserViewSet(viewsets.ModelViewSet):
     model = User
@@ -13,10 +16,15 @@ class UserViewSet(viewsets.ModelViewSet):
 class GroupViewSet(viewsets.ModelViewSet):
     model = Group
 
+# Thermostat define the view behavior.
+class ThermostatsViewSet(viewsets.ModelViewSet):
+	model = Thermostat
+
 # Routers provide an easy way of automatically determining the URL conf
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
+router.register(r'thermostatsInfo', ThermostatsViewSet)
 
 urlpatterns = patterns('',
 	# REST
