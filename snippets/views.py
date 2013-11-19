@@ -1,8 +1,9 @@
 from snippets.models import Snippet
-from snippets.serializers import SnippetSerializer, UserSerializer
+from snippets.serializers import SnippetSerializer
 from rest_framework import generics
 from django.contrib.auth.models import User
 from rest_framework import permissions
+from snippets.serializers import UserSerializer
 
 class SnippetList(generics.ListCreateAPIView):
     queryset = Snippet.objects.all()
