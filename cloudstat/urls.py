@@ -21,7 +21,7 @@ class ThermostatsViewSet(viewsets.ModelViewSet):
 	model = Thermostat
 
 # # Routers provide an easy way of automatically determining the URL conf
-# router = routers.DefaultRouter()
+router = routers.DefaultRouter()
 # router.register(r'users', UserViewSet)
 # router.register(r'groups', GroupViewSet)
 # router.register(r'thermostatcall', ThermostatsViewSet)
