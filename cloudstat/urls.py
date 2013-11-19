@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, url, include
 from snippets import views
+from thermostats import views
 from rest_framework.routers import DefaultRouter
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'snippets', views.SnippetViewSet)
+router.register(r'thermostats', views.ThermostatViewSet)
 router.register(r'users', views.UserViewSet)
 
 # The API URLs are now determined automatically by the router.
