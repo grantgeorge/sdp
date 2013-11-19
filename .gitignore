@@ -1,4 +1,13 @@
 venv
-*.pyc
 staticfiles
 database.txt
+*.db
+
+# These are normally defined globally
+*.pyc
+*~
+.*
+
+# Accept these files in the repository
+!.gitignore
+!.travis.yml
