@@ -46,7 +46,7 @@ class Thermostat(models.Model):
 		lexer = get_lexer_by_name(self.language)
 		status = self.status and 'table' or False
 		options = self.name and {'name': self.name} or {}
-		formatter = HtmlFormatter(style=self.style, status=status,
+		formatter = HtmlFormatter(current_temperature=self.current_temperature, status=status,
 		                          full=True, **options)
 		self.highlighted = highlight(self.code, lexer, formatter)
 		super(Thermostat, self).save(*args, **kwargs)
