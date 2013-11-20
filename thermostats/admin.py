@@ -11,10 +11,10 @@ from thermostats.models import Thermostat
 
 class ThermostatAdmin(admin.ModelAdmin):
 	fieldsets = [
-		('Settings', {'fields': ['base_control','account_id', 'thermostat_id', 'name']}),
+		('Settings', {'fields': ['account_id', 'thermostat_id', 'name']}),
 		('Temperature Control', {'fields':['current_temperature', 'setpoint_temperature', 'setback_temperature', 'status']}),
 	]
-	list_display = ('name', 'base_control', 'account_id', 'thermostat_id')
+	list_display = ('name', 'account_id', 'thermostat_id')
 	search_fields = ['name']
 
 # admin.site.register(BaseControl, BaseControlAdmin)
