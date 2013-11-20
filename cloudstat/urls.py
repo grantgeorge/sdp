@@ -25,5 +25,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # url(r'^$', 'cloudstat.views.home', name='home'),
-    url(r'^thermostatsDisplay/', include('thermostats.urls', namespace="thermostats")),
+    #url(r'^thermostatsDisplay/', include('thermostats.urls', namespace="thermostats")),
 )
