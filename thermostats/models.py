@@ -30,6 +30,9 @@ class Thermostat(models.Model):
 	current_temperature = models.IntegerField(default=0)
 	setpoint_temperature = models.IntegerField(default=0)
 	setback_temperature = models.IntegerField(default=0)
+	language = models.CharField(choices=LANGUAGE_CHOICES,
+                                default='python',
+                                max_length=100)
 	status = models.BooleanField(default=False)
 	owner = models.ForeignKey('auth.User', related_name='thermostats')
 	highlighted = models.TextField()
