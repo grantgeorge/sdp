@@ -44,7 +44,7 @@ class Thermostat(models.Model):
 		options = self.name and {'name': self.name} or {}
 		formatter = HtmlFormatter(current_temperature=self.current_temperature, status=status,
 		                          full=True, **options)
-		self.highlighted = highlight(self.temperature, formatter)
+		self.highlighted = highlight(self.current_temperature, formatter)
 		super(Thermostat, self).save(*args, **kwargs)
 
 		# limit the number of instances retained
