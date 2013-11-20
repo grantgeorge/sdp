@@ -30,9 +30,6 @@ class Thermostat(models.Model):
 	current_temperature = models.IntegerField(default=0)
 	setpoint_temperature = models.IntegerField(default=0)
 	setback_temperature = models.IntegerField(default=0)
-	language = models.CharField(choices=LANGUAGE_CHOICES,
-                                default='python',
-                                max_length=100)
 	status = models.BooleanField(default=False)
 	owner = models.ForeignKey('auth.User', related_name='thermostats')
 	highlighted = models.TextField()
@@ -43,12 +40,11 @@ class Thermostat(models.Model):
 		Use the `pygments` library to create a highlighted HTML
 		representation of the code snippet.
 		"""
-		lexer = get_lexer_by_name(self.language)
 		status = self.status and 'table' or False
 		options = self.name and {'name': self.name} or {}
 		formatter = HtmlFormatter(current_temperature=self.current_temperature, status=status,
 		                          full=True, **options)
-		self.highlighted = highlight(self.code, lexer, formatter)
+		self.highlighted = highlight(self.temperature, formatter)
 		super(Thermostat, self).save(*args, **kwargs)
 
 		# limit the number of instances retained
