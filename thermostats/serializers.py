@@ -3,7 +3,7 @@ from thermostats.models import Thermostat
 from django.contrib.auth.models import User
 
 
-class ThermostatsSerializer(serializers.HyperlinkedModelSerializer):
+class ThermostatSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.Field(source='owner.username')
     highlight = serializers.HyperlinkedIdentityField(view_name='thermostat-highlight', format='html')
 
