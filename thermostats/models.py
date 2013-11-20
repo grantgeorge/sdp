@@ -27,6 +27,9 @@ class Thermostat(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	account_id = models.IntegerField(default=0)
 	name = models.CharField(max_length=200)
+	language = models.CharField(choices=LANGUAGE_CHOICES,
+                                default='python',
+                                max_length=100)
 	current_temperature = models.IntegerField(default=0)
 	setpoint_temperature = models.IntegerField(default=0)
 	setback_temperature = models.IntegerField(default=0)
@@ -42,9 +45,10 @@ class Thermostat(models.Model):
 		"""
 		status = self.status and 'table' or False
 		options = self.name and {'name': self.name} or {}
+		lexer = get_lexer_by_name(self.language)
 		formatter = HtmlFormatter(current_temperature=self.current_temperature, status=status,
 		                          full=True, **options)
-		self.highlighted = highlight(self.current_temperature, formatter)
+		self.highlighted = highlight(self.current_temperature, lexer, formatter)
 		super(Thermostat, self).save(*args, **kwargs)
 
 		# limit the number of instances retained
